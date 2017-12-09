@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="options.css" type="text/css" />
+  </head>
+
+  <body>
+    <form id="optionsForm">
+      <label class="browser-style browser-style-label">
+        <div>LibreTube instance URL:</div>
+        <input type="url" name="instanceUrl" />
+      </label>
+      <div class="browser-style">
+        <input type="checkbox" name="redirectWatch" id="redirectWatch">
+        <label for="redirectWatch" class="browser-style-label">Redirect YouTube video pages to LibreTube</label>
+      </div>
+      <button type="submit" class="browser-style default">Save</button>
+    </form>
+    <script src="options.js"></script>
+  </body>
+</html>

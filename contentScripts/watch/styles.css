@@ -1,0 +1,19 @@
+.libretube-subscribe-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.libretube-subscribe-button {
+  display: block;
+  width: var(--yt-paper-button-width, auto);
+  padding: var(--yt-button-padding, 0.7em 0.57em);
+  background-color: var(--yt-brand-paper-button-color);
+  color: hsl(0, 0%, 100%);
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
