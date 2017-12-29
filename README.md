@@ -1,27 +1,9 @@
-# navigation-stats
+# The LibreTube WebExtension
 
-## What it does ##
+_Heavyly Work in Progress_
 
-The extension includes:
+This extension will serve the following purposes:
 
-* a background which collects navigation stats using the webNavigation API,
-  and store the stats using the storage API.
-* a browser action with a popup including HTML, CSS, and JS, which renders
-  the stats stored by the background page
-
-
-When the user navigate on a website from any of the browser tabs, the background
-page collected every completed navigation with the "http" or "https" schemes
-(using an UrlFilter for the listener of the webNavigation events)
-
-When the user clicks the browser action button, the popup is shown, and
-the stats saved using the storage API are retrived and rendered in the
-popup window.
-
-## What it shows ##
-
-* use the webNavigation API to monitor browsing navigation events
-* use an UrlFilter to only receive the webNavigation event using
-  one of the supported criteria.
-* use the storage API to persist data over browser reboots and to share it
-  between different extension pages.
+- Configure your own instance URL in the extension options page
+- Add "Watch in LibreTube" and "Subscribe in LibreTube" buttons when visiting YouTube channels/videos
+- Add an option to redirect any and all requests for `youtube.com/watch?...` to `<your_instance>/watch?...`
