@@ -12,6 +12,7 @@
   ],
   "background": {
     "scripts": [
+      "backgroundScripts/messageHandlers.js",
       "backgroundScripts/redirect.js",
       "backgroundScripts/pageActions.js"
     ]
