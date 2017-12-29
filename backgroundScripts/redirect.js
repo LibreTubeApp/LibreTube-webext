@@ -3,22 +3,32 @@
  * redirects the user agent to the LibreTube watch page.
  */
 
-browser.storage.local.get().then(results => {
-  browser.webRequest.onBeforeRequest.addListener(
-    (details) => {
-      const redirectUrl = details.url.replace(
-        /https?:\/\/www.youtube.com/,
-        results.url,
-      );
+let options = {};
 
-      return {
-        ...details,
-        redirectUrl,
-      };
-    },
-    {
-      urls: ['*://www.youtube.com/watch*'],
-    },
-    ['blocking']
-  );
+browser.storage.onChanged.addListener((changes, area) => {
+  const changedItems = Object.keys(changes);
+
+  for (const item of changedItems) {
+    options[item] = changes[item].newValue;
+  }
 });
+
+browser.webRequest.onBeforeRequest.addListener(
+  (request) => {
+    if (!options.redirectWatchPage) return request;
+
+    const redirectUrl = request.url.replace(
+      /https?:\/\/www.youtube.com/,
+      options.instanceUrl,
+    );
+
+    return {
+      ...request,
+      redirectUrl,
+    };
+  },
+  {
+    urls: ['*://www.youtube.com/watch*'],
+  },
+  ['blocking']
+);

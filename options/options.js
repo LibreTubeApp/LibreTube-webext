@@ -5,18 +5,22 @@ function saveOptions(event) {
 
   const data = new FormData(form);
   const instanceUrl = data.get('instanceUrl');
-  const redirectWatch = data.get('redirectWatch');
+  const redirectWatchPage = data.get('redirectWatchPage');
 
-  browser.storage.sync.set({ instanceUrl, redirectWatch });
+  browser.storage.sync.set({ instanceUrl, redirectWatchPage });
 }
 
 function restoreOptions() {
   browser.storage.sync.get().then(storage => {
     const instanceUrl = storage.instanceUrl;
-    const redirectWatch = storage.redirectWatch;
+    const redirectWatchPage = storage.redirectWatchPage;
 
-    document.querySelector('input[name="instanceUrl"]').value = instanceUrl;
-    document.querySelector('input[name="redirectWatch"]').checked = redirectWatch;
+    if (instanceUrl) {
+      document.querySelector('input[name="instanceUrl"]').value = instanceUrl;
+    }
+    if (redirectWatchPage !== undefined) {
+      document.querySelector('input[name="redirectWatchPage"]').checked = redirectWatchPage;
+    }
   });
 }
 
